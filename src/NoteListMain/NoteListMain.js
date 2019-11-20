@@ -5,17 +5,24 @@ import Note from '../Note/Note'
 import CircleButton from '../CircleButton/CircleButton'
 import './NoteListMain.css'
 import NotefulContext from "./../NotefulContext";
+import { getNotesForFolder } from '../notes-helpers'
 
 export default class NoteListMain extends React.Component {
+  static defaultProps = {
+    match: {
+      params: {}
+    }
+  }
   static contextType = NotefulContext;
 
   render() {
-    const context = this.context;
-    console.log(context);
+    const { folderId } = this.props.match.params;
+    const { notes=[] } = this.context;
+    const notesForFolder = getNotesForFolder(notes, folderId);
     return (
       <section className='NoteListMain'>
         <ul>
-          {context.notes.map(note =>
+          {notesForFolder.map(note =>
             <li key={note.id}>
               <Note
                 id={note.id}
