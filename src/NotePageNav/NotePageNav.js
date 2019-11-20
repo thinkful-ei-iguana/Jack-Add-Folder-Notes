@@ -20,8 +20,8 @@ export default class NotePageNav extends React.Component {
           <br />
           Back
         </CircleButton>
-        {this.props.folder && (
-          <h3 className="NotePageNav__folder-name">{this.props.folder.name}</h3>
+        {folders && (
+          <h3 className="NotePageNav__folder-name">{folders.name}</h3>
         )}
       </div>
     );
