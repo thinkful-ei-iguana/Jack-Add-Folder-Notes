@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Note.css";
 import NotefulContext from './../NotefulContext'
-//import config from '../config'
+
 
 
 class Note extends React.Component {
