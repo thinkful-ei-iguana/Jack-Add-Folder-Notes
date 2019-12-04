@@ -5,12 +5,6 @@ import NotefulContext from "./NotefulContext";
 export default class AddNote extends React.Component {
     static contextType = NotefulContext;
 
-
-     /*state = { input: { value: '' } }
-    setInput = input => {
-        this.setState({ input: { value: input } });
-    }*/
-
     state = {input : {
         name: '',
         description: '',
@@ -52,7 +46,6 @@ export default class AddNote extends React.Component {
 
     submitNote(event){
         event.preventDefault();
-        //Promise.all([this.apiAddFolder(e)]).then(alert('did it') ).then(this.props.history.push(`/`));
         Promise.all([this.addApiNote(this.state.input)]).then(this.props.history.push(`/`));
     }
 
@@ -83,7 +76,7 @@ export default class AddNote extends React.Component {
                 <form className="new-note" onSubmit={e => this.submitNote(e)}>
                     <label htmlFor="new-note-name">Name</label>
                     <input type="text" id="new-note-name" value={this.state.input.name}
-                        onChange={e => { this.setName(e.target.value) }} placeholder="Enter Folder Name" required />
+                        onChange={e => { this.setName(e.target.value) }} placeholder="Enter Note Title" required />
                     <label htmlFor="new-note-content">Content</label>
                     <input type="text" id="new-note-content" onChange={e => this.setDescription(e.target.value) } required></input>
                     <label htmlFor="new-note-folder">Folder</label>
