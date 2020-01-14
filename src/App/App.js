@@ -33,6 +33,7 @@ class App extends Component {
         return Promise.all([notesRes.json(), foldersRes.json()]);
       })
       .then(([notes, folders]) => {
+       
         this.setState({ notes, folders });
       })
       .catch(error => {
