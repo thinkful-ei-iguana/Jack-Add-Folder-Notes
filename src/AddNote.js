@@ -52,7 +52,6 @@ export default class AddNote extends React.Component {
     addApiNote(input){
         let {name, description, folderId, dateModified} = input;
         if(folderId === undefined){ folderId = this.context.folders[0].id}
-        console.log(Date);
         const noteName = JSON.stringify({name: name, content: description, folderId: folderId, dateModified: dateModified});
         return fetch(`http://localhost:9090/notes`, {
             method: 'POST',

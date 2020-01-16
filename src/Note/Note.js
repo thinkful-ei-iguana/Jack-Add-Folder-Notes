@@ -4,6 +4,7 @@ import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Note.css";
 import NotefulContext from './../NotefulContext'
+import PropTypes from 'prop-types';
 
 
 
@@ -59,5 +60,13 @@ class Note extends React.Component {
     );
   }
 }
+
+Note.propTypes  ={
+  noteId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  modified: PropTypes.object, 
+  onDeleteNote: PropTypes.func.isRequired
+};
 
 export default Note;
