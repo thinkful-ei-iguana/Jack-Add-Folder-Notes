@@ -9,7 +9,7 @@ export default class AddNote extends React.Component {
         name: '',
         description: '',
         folderId: '',
-        dateModified: Date
+        modified: Date
     }}
 
    
@@ -20,7 +20,7 @@ export default class AddNote extends React.Component {
             name: input,
             description: this.state.description,
             folderId: this.state.folderId,
-            dateModified: now
+            modified: now
         }})
     }
 
@@ -30,7 +30,7 @@ export default class AddNote extends React.Component {
             name: this.state.input.name,
             description: input,
             folderId: this.state.input.folderId,
-            dateModified: now
+            modified: now
         }})     
     }
 
@@ -40,7 +40,7 @@ export default class AddNote extends React.Component {
             name: this.state.input.name,
             description: this.state.input.description,
             folderId: input,
-            dateModified: now
+            modified: now
         }})
     }
 
@@ -50,9 +50,9 @@ export default class AddNote extends React.Component {
     }
 
     addApiNote(input){
-        let {name, description, folderId, dateModified} = input;
+        let {name, description, folderId, modified} = input;
         if(folderId === undefined){ folderId = this.context.folders[0].id}
-        const noteName = JSON.stringify({name: name, content: description, folderId: folderId, dateModified: dateModified});
+        const noteName = JSON.stringify({name: name, content: description, folderId: folderId, modified: modified});
         return fetch(`http://localhost:9090/notes`, {
             method: 'POST',
             body: noteName,
